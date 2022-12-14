@@ -1,0 +1,58 @@
+<script>
+    toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "15000",
+  "hideDuration": "3000",
+  "timeOut": "15000",
+  "extendedTimeOut": "10000", // Thời gian từ khi bỏ hover cho đến khi nó ẩn đi
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+</script>
+
+<% if (locals.messages){ %>
+    <% if (messages.hasOwnProperty('success')) { %>
+        <h1>HI</h1>
+        <% messages.success.map((mes=>{   %>
+            <script>
+                toastr.success('<%=mes%>',"Success")
+            </script>
+        <% })).join('') %>
+    <% } %>
+
+    <% if (messages.hasOwnProperty('warning')) { %>
+        <% messages.warning.forEach((mes=>{   %>
+            <script>
+                toastr.warning('<%=mes%>',"Warning")
+            </script>
+        <% })) %>
+    <% } %>
+
+    <% if (messages.hasOwnProperty('info')) { %>
+        <% messages.info.forEach((mes=>{   %>
+            <script>
+                toastr.warning('<%=mes%>',"Info")
+            </script>
+        <% })) %>
+    <% } %>
+    
+    <% if (messages.hasOwnProperty('error')) { %>
+        <% messages.error.forEach((mes=>{   %>
+            <script>
+                toastr.error('<%=mes%>',"Error")
+            </script>
+        <% })) %>
+    <% } %>
+<% } %>
+
+
+
+
